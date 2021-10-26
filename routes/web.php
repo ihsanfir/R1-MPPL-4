@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +24,11 @@ Route::get('employee/{id}', [EmployeeController::class, 'show']);
 
 Route::get('employee/edit/{id}', [EmployeeController::class, 'edit']);
 Route::Post('employee/edit/{id}', [EmployeeController::class, 'update']);
+
+// Register route
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
+
+// Login Route
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/authenticate', [LoginController::class, 'authenticate']);
