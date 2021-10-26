@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateExpanses extends Migration
+class CreateSuppliersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateExpanses extends Migration
      */
     public function up()
     {
-        Schema::create('expanses', function (Blueprint $table) {
+        Schema::create('suppliers', function (Blueprint $table) {
             $table->id('id');
-            $table->integer('id_product');
-            $table->double('amount');
-            $table->date('date');
+            $table->string('name');
+            $table->string('no_hp');
+            $table->string('email');
         });
     }
 
@@ -28,6 +28,6 @@ class CreateExpanses extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('expanses');
+        Schema::dropIfExists('suppliers');
     }
 }

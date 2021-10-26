@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Employee;
+use App\Models\Income;
+use App\Models\Expanse;
 
-class EmployeeController extends Controller
+
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +16,12 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('employee', [
-            "title" => "Employee",
-            "data" => Employee::all()
+        $income = Income::all();
+        $expanse = Expanse::all();
+        return view('dashboard', [
+            "title" => "Dashborad",
+            "income" => $income,
+            "expanse" => $expanse
         ]);
     }
 
@@ -49,10 +54,7 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        return view('employeeDetail',[
-            "title" => "Detail Employee",
-            "data" => Employee::find($id)
-        ]);
+        //
     }
 
     /**
@@ -63,10 +65,7 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        return view('employeeEdit',[
-            "title" => "Edit Employee",
-            "data" => Employee::find($id)
-        ]);
+        //
     }
 
     /**
@@ -78,19 +77,7 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $salary = $request->input('salary');
-        $role = $request->input('role');
-        $Employee = Employee::find($id);
-        $Employee->salary = $salary;
-        $Employee->role = $role;
-        $Employee->save();
-        /*
-        Employee::where('id', $id)
-                ->update(['salary'=>$salary],['role'=>$role]);*/
-        return view('employeeDetail',[
-            "title" => "Detail Employee",
-            "data" => Employee::find($id)
-        ]);
+        //
     }
 
     /**

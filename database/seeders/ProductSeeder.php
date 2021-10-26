@@ -18,7 +18,7 @@ class ProductSeeder extends Seeder
         $faker = Faker::create('id_ID');
  
     	for($i = 1; $i <= 50; $i++){
-            DB::table('product')->insert([
+            DB::table('products')->insert([
                 'name' => $faker->name,
                 'price' => $faker->numberBetween(100000,10000000),
                 'stock' => $faker->numberBetween(1,500),
