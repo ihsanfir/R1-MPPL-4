@@ -14,13 +14,13 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('category')->insert([
+        DB::table('categorys')->insert([
             'name' => 'Web Application'
         ]);
-        DB::table('category')->insert([
+        DB::table('categorys')->insert([
             'name' => 'Android Application'
         ]);
-        DB::table('category')->insert([
+        DB::table('categorys')->insert([
             'name' => 'Web API'
         ]);
     }

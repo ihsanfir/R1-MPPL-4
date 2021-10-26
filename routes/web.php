@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,10 @@ use App\Http\Controllers\EmployeeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [DashboardController::class, 'index']);
 
 Route::get('employee', [EmployeeController::class, 'index'] );
 Route::get('employee/{id}', [EmployeeController::class, 'show']);
+
+Route::get('employee/edit/{id}', [EmployeeController::class, 'edit']);
+Route::Post('employee/edit/{id}', [EmployeeController::class, 'update']);
