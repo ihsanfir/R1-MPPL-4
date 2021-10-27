@@ -22,3 +22,7 @@ Route::get('employee/{id}', [EmployeeController::class, 'show']);
 
 Route::get('employee/edit/{id}', [EmployeeController::class, 'edit']);
 Route::Post('employee/edit/{id}', [EmployeeController::class, 'update']);
+
+Route::get('login', function(){
+    return view('login');
+});
