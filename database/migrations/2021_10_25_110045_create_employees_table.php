@@ -18,6 +18,7 @@ class CreateEmployeesTable extends Migration
             $table->string('name');
             $table->string('email',50)->unique();
             $table->double('salary');
+            $table->double('bonus');
             $table->string('role');
             $table->timestamp('joined_at');
             $table->timestamps();

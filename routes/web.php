@@ -20,9 +20,12 @@ use App\Http\Controllers\LoginController;
 Route::get('/', [DashboardController::class, 'index']);
 
 Route::get('employee', [EmployeeController::class, 'index'] );
-Route::get('employee/{id}', [EmployeeController::class, 'show']);
-
+Route::get('employee/add', [EmployeeController::class, 'create']);
+Route::get('employee/delete/{id}', [EmployeeController::class, 'destroy']);
+Route::get('employee/search',[EmployeeController::class,'search']);
 Route::get('employee/edit/{id}', [EmployeeController::class, 'edit']);
+Route::get('employee/{id}', [EmployeeController::class, 'show']);
+Route::Post('employee/store', [EmployeeController::class, 'store']);
 Route::Post('employee/edit/{id}', [EmployeeController::class, 'update']);
 
 // Register route

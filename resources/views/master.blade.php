@@ -98,7 +98,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/')}}" class="nav-link">
+                <a href="{{url('/employee/add')}}" class="nav-link">
                   <i class="fas fa-plus-square nav-icon"></i>
                   <p>Add</p>
                 </a>

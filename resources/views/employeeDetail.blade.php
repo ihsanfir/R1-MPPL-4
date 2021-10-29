@@ -46,6 +46,9 @@
                 <p class="text-muted"><?php echo$data->salary; ?></p>
 
                 <hr>
+                <strong><i class="fas fa-money-bill-wave"></i> Bonus</strong>
+                <p class="text-muted"><?php echo$data->bonus; ?></p>
+                <hr>
 
                 <strong><i class="fas fa-cogs"></i> Role</strong>
 
@@ -53,6 +56,9 @@
               </div>
               <!-- /.card-body -->
             </div>
+              <form action="/employee/delete/<?php echo$data->id; ?>">
+                <input style="background-color:red" type="submit" value="Delete" />
+              </form>
             <!-- /.card -->
           </div>
         </div>
