@@ -18,6 +18,7 @@ class CreateIncomesTable extends Migration
             $table->integer('id_product');
             $table->double('amount');
             $table->date('date');
+            $table->timestamps();
         });
     }
 

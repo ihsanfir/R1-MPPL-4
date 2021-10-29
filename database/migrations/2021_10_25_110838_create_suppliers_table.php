@@ -18,6 +18,7 @@ class CreateSuppliersTable extends Migration
             $table->string('name');
             $table->string('no_hp');
             $table->string('email');
+            $table->timestamps();
         });
     }
 
