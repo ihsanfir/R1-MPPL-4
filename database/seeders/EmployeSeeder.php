@@ -22,6 +22,7 @@ class EmployeSeeder extends Seeder
                 'name' => $faker->name,
                 'email' => $faker->email,
                 'salary' => $faker->numberBetween(500000,50000000),
+                'bonus' => $faker->numberBetween(0,5000000),
                 'role' => $faker->jobTitle
             ]);
         }

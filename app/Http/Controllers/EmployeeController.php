@@ -27,7 +27,9 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view('employeeAdd',[
+            "title" => "Add Employee"
+        ]);
     }
 
     /**
@@ -38,7 +40,14 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Employee::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'salary' => $request->salary,
+            'bonus' => $request->bonus,
+            'role' => $request->role,
+        ]);
+        return redirect('/employee');
     }
 
     /**
@@ -78,10 +87,16 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $name = $request->input('name');
+        $email = $request->input('email');
         $salary = $request->input('salary');
+        $bonus = $request->input('bonus');
         $role = $request->input('role');
         $Employee = Employee::find($id);
+        $Employee->name = $name;
+        $Employee->email = $email;
         $Employee->salary = $salary;
+        $Employee->bonus = $bonus;
         $Employee->role = $role;
         $Employee->save();
         /*
@@ -101,6 +116,19 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Employee::destroy($id);
+        return redirect('/employee');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        return view('employee',[
+            "title" => "Employee",
+            "data" => Employee::where('name','LIKE','%'.$search.'%')
+                            ->orWhere('email','LIKE','%'.$search.'%')
+                            ->orWhere('role', 'LIKE', '%'.$search.'%')
+                            ->get()
+        ]);
     }
 }

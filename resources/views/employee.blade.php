@@ -56,13 +56,15 @@
               <div class="card-header">
                 <h3 class="card-title">Employee</h3>
                 <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                  <form action="/employee/search" method="GET">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                      <input type="text" name="search" class="form-control float-right" placeholder="Search" value="{{ old('search') }}">
 
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                      <div class="input-group-append">
+                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                      </div>
                     </div>
-                  </div>
+                  </form>
                 </div>
               </div>
               <!-- /.card-header -->
@@ -74,6 +76,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Salary</th>
+                        <th>Bonus</th>
                         <th>Role</th>
                         </tr>
                     </thead>
@@ -84,6 +87,7 @@
                             <td>{{ $employee->name }}</td>
                             <td>{{ $employee->email }}</td>
                             <td>{{ $employee->salary }}</td>
+                            <td>{{ $employee->bonus }}</td>
                             <td>{{ $employee->role }}</td>
                             <td><a href = '/employee/{{ $employee->id }}'>Detail</a></td>
                             <td><a href = '/employee/edit/{{ $employee->id }}'>Edit</a></td>
