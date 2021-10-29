@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SupplierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +40,15 @@ Route::get('category/edit/{id}', [CategoryController::class, 'edit']);
 //Route::get('category/{id}', [CategoryController::class, 'show']);
 Route::Post('category/store', [CategoryController::class, 'store']);
 Route::Post('category/edit/{id}', [CategoryController::class, 'update']);
+
+//Supplier Route
+Route::get('supplier', [SupplierController::class, 'index']);
+Route::get('supplier/add', [SupplierController::class, 'create']);
+Route::get('supplier/delete/{id}', [SupplierController::class, 'destroy']);
+Route::get('supplier/edit/{id}', [SupplierController::class, 'edit']);
+//Route::get('supplier/{id}', [SupplierController::class, 'show']);
+Route::Post('supplier/store', [SupplierController::class, 'store']);
+Route::Post('supplier/edit/{id}', [SupplierController::class, 'update']);
 
 // Register route
 Route::get('/register', [RegisterController::class, 'index']);

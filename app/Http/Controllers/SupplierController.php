@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Models\Supplier;
 
-class CategoryController extends Controller
+class SupplierController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('category', [
-            "title" => "Category",
-            "data" => Category::all()
+        return view('supplier', [
+            "title" => "Suppliers",
+            "data" => Supplier::all()
         ]);
     }
 
@@ -27,8 +27,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('categoryAdd',[
-            "title" => "Add Category"
+        return view('supplierAdd',[
+            "title" => "Add Supplier"
         ]);
     }
 
@@ -40,10 +40,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create([
-            'name' => $request->name
+        Supplier::create([
+            'name' => $request->name,
+            'no_hp' => $request->no_hp,
+            'email' => $request->email
         ]);
-        return redirect('/category');
+        return redirect('/supplier');
     }
 
     /**
@@ -54,9 +56,9 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        return view('categoryDetail',[
-            "title" => "Detail Category",
-            "data" => Category::find($id)
+        return view('supplierDetail',[
+            "title" => "Detail supplier",
+            "data" => Supplier::find($id)
         ]);
     }
 
@@ -68,9 +70,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        return view('categoryEdit',[
-            "title" => "Edit Category",
-            "data" => Category::find($id)
+        return view('supplierEdit',[
+            "title" => "Edit Supplier",
+            "data" => Supplier::find($id)
         ]);
     }
 
@@ -84,10 +86,14 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $name = $request->input('name');
-        $Category = Category::find($id);
-        $Category->name = $name;
-        $Category->save();
-        return redirect('/category');
+        $no_hp = $request->input('no_hp');
+        $email = $request->input('email');
+        $Supplier = Supplier::find($id);
+        $Supplier->name = $name;
+        $Supplier->no_hp = $no_hp;
+        $Supplier->email = $email;
+        $Supplier->save();
+        return redirect('/supplier');
     }
 
     /**
@@ -98,7 +104,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::destroy($id);
-        return redirect('/category');
+        Supplier::destroy($id);
+        return redirect('/supplier');
     }
 }
