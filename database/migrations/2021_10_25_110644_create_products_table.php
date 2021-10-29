@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->integer('stock');
             $table->integer('id_supplier');
             $table->integer('id_category');
+            $table->timestamps();
         });
     }
 
