@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SupplierController;
 
@@ -49,6 +50,14 @@ Route::get('supplier/edit/{id}', [SupplierController::class, 'edit']);
 //Route::get('supplier/{id}', [SupplierController::class, 'show']);
 Route::Post('supplier/store', [SupplierController::class, 'store']);
 Route::Post('supplier/edit/{id}', [SupplierController::class, 'update']);
+
+//Product Route
+Route::get('product', [ProductController::class, 'index']);
+Route::get('product/add', [ProductController::class, 'create']);
+Route::get('product/delete/{id}', [ProductController::class, 'destroy']);
+Route::get('product/edit/{id}', [ProductController::class, 'edit']);
+Route::Post('product/store', [ProductController::class, 'store']);
+Route::Post('product/edit/{id}', [ProductController::class, 'update']);
 
 // Register route
 Route::get('/register', [RegisterController::class, 'index']);

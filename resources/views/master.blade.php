@@ -153,6 +153,30 @@
               </li>              
             </ul>
           </li>
+<!-- Product -->
+<li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Product
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('/product')}}" class="nav-link">
+                  <i class="fas fa-bars nav-icon"></i>
+                  <p>List</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('/product/add')}}" class="nav-link">
+                  <i class="fas fa-plus-square nav-icon"></i>
+                  <p>Add</p>
+                </a>
+              </li>              
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
