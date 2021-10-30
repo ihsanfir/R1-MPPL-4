@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use PDF;
+use Excel;
+use App\Exports\EmployeeExport;
 
 class EmployeeController extends Controller
 {
@@ -130,5 +133,16 @@ class EmployeeController extends Controller
                             ->orWhere('role', 'LIKE', '%'.$search.'%')
                             ->get()
         ]);
+    }
+
+    public function pdf() {
+        $employees = Employee::all();
+ 
+    	$pdf = PDF::loadview('pdf.employee',['employees'=>$employees]);
+        return $pdf->stream();
+    }
+
+    public function excel() {
+        return Excel::download(new EmployeeExport, 'employees.xlsx');
     }
 }

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Supplier;
+use PDF;
+use Excel;
+use App\Exports\SupplierExport;
 
 class SupplierController extends Controller
 {
@@ -106,5 +109,16 @@ class SupplierController extends Controller
     {
         Supplier::destroy($id);
         return redirect('/supplier');
+    }
+
+    public function pdf() {
+        $suppliers = Supplier::all();
+ 
+    	$pdf = PDF::loadview('pdf.supplier',['suppliers'=>$suppliers]);
+        return $pdf->stream();
+    }
+
+    public function excel() {
+        return Excel::download(new SupplierExport, 'suppliers.xlsx');
     }
 }
