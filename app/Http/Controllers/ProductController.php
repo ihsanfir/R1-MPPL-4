@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Supplier;
+use PDF;
+use Excel;
+use App\Exports\ProductExport;
 
 class ProductController extends Controller
 {
@@ -124,5 +127,19 @@ class ProductController extends Controller
     {
         Product::destroy($id);
         return redirect("/product");
+    }
+
+    public function pdf() {
+        $products = Product::join('categories', 'categories.id', '=', 'products.id_category' )
+                            ->join('suppliers', 'suppliers.id', '=', 'products.id_supplier')
+                            ->orderBy('id', 'DESC')
+                            ->get(['products.*', 'categories.name as category', 'suppliers.name as supplier']);
+ 
+    	$pdf = PDF::loadview('pdf.product',['products'=>$products]);
+        return $pdf->stream();
+    }
+
+    public function excel() {
+        return Excel::download(new ProductExport, 'products.xlsx');
     }
 }

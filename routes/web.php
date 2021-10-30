@@ -24,44 +24,60 @@ use App\Http\Controllers\SupplierController;
 Route::get('/', [DashboardController::class, 'index']);
 
 //Employee Route
-Route::get('employee', [EmployeeController::class, 'index'] );
-Route::get('employee/add', [EmployeeController::class, 'create']);
-Route::get('employee/delete/{id}', [EmployeeController::class, 'destroy']);
-Route::get('employee/search',[EmployeeController::class,'search']);
-Route::get('employee/edit/{id}', [EmployeeController::class, 'edit']);
-Route::get('employee/{id}', [EmployeeController::class, 'show']);
-Route::Post('employee/store', [EmployeeController::class, 'store']);
-Route::Post('employee/edit/{id}', [EmployeeController::class, 'update']);
+Route::prefix('employee')->group(function () {
+    Route::get('/', [EmployeeController::class, 'index'] );
+    Route::get('/add', [EmployeeController::class, 'create']);
+    Route::get('/delete/{id}', [EmployeeController::class, 'destroy']);
+    Route::get('/search',[EmployeeController::class,'search']);
+    Route::get('/edit/{id}', [EmployeeController::class, 'edit']);
+    Route::get('/export-pdf', [EmployeeController::class, 'pdf']);
+    Route::get('/export-excel', [EmployeeController::class, 'excel']);
+    Route::get('/{id}', [EmployeeController::class, 'show']);
+    Route::Post('/store', [EmployeeController::class, 'store']);
+    Route::Post('/edit/{id}', [EmployeeController::class, 'update']);
+});
 
 //Category Route
-Route::get('category', [CategoryController::class, 'index']);
-Route::get('category/add', [CategoryController::class, 'create']);
-Route::get('category/delete/{id}', [CategoryController::class, 'destroy']);
-Route::get('category/edit/{id}', [CategoryController::class, 'edit']);
-//Route::get('category/{id}', [CategoryController::class, 'show']);
-Route::Post('category/store', [CategoryController::class, 'store']);
-Route::Post('category/edit/{id}', [CategoryController::class, 'update']);
+Route::prefix('category')->group(function () {
+    Route::get('/', [CategoryController::class, 'index']);
+    Route::get('/add', [CategoryController::class, 'create']);
+    Route::get('/delete/{id}', [CategoryController::class, 'destroy']);
+    Route::get('/edit/{id}', [CategoryController::class, 'edit']);
+    //Route::get('/{id}', [CategoryController::class, 'show']);
+    Route::Post('/store', [CategoryController::class, 'store']);
+    Route::Post('/edit/{id}', [CategoryController::class, 'update']);
+});
 
 //Supplier Route
-Route::get('supplier', [SupplierController::class, 'index']);
-Route::get('supplier/add', [SupplierController::class, 'create']);
-Route::get('supplier/delete/{id}', [SupplierController::class, 'destroy']);
-Route::get('supplier/edit/{id}', [SupplierController::class, 'edit']);
-//Route::get('supplier/{id}', [SupplierController::class, 'show']);
-Route::Post('supplier/store', [SupplierController::class, 'store']);
-Route::Post('supplier/edit/{id}', [SupplierController::class, 'update']);
+Route::prefix('supplier')->group(function () {
+    Route::get('/', [SupplierController::class, 'index']);
+    Route::get('/add', [SupplierController::class, 'create']);
+    Route::get('/export-pdf', [SupplierController::class, 'pdf']);
+    Route::get('/export-excel', [SupplierController::class, 'excel']);
+    Route::get('/delete/{id}', [SupplierController::class, 'destroy']);
+    Route::get('/edit/{id}', [SupplierController::class, 'edit']);
+    //Route::get('/{id}', [SupplierController::class, 'show']);
+    Route::Post('/store', [SupplierController::class, 'store']);
+    Route::Post('/edit/{id}', [SupplierController::class, 'update']);
+});
 
 //Product Route
-Route::get('product', [ProductController::class, 'index']);
-Route::get('product/add', [ProductController::class, 'create']);
-Route::get('product/delete/{id}', [ProductController::class, 'destroy']);
-Route::get('product/edit/{id}', [ProductController::class, 'edit']);
-Route::Post('product/store', [ProductController::class, 'store']);
-Route::Post('product/edit/{id}', [ProductController::class, 'update']);
+Route::prefix('product')->group(function () {
+    Route::get('/', [ProductController::class, 'index']);
+    Route::get('/add', [ProductController::class, 'create']);
+    Route::get('/export-pdf', [ProductController::class, 'pdf']);
+    Route::get('/export-excel', [ProductController::class, 'excel']);
+    Route::get('/delete/{id}', [ProductController::class, 'destroy']);
+    Route::get('/edit/{id}', [ProductController::class, 'edit']);
+    Route::Post('/store', [ProductController::class, 'store']);
+    Route::Post('/edit/{id}', [ProductController::class, 'update']);
+});
 
 // Register route
-Route::get('/register', [RegisterController::class, 'index']);
-Route::post('/register', [RegisterController::class, 'store']);
+Route::prefix('register')->group(function () {
+    Route::get('/', [RegisterController::class, 'index']);
+    Route::post('/', [RegisterController::class, 'store']); 
+});
 
 // Login Route
 Route::get('/login', [LoginController::class, 'index'])->name('login');
