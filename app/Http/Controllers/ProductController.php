@@ -22,7 +22,7 @@ class ProductController extends Controller
         $data = Product::join('categories', 'categories.id', '=', 'products.id_category' )
                             ->join('suppliers', 'suppliers.id', '=', 'products.id_supplier')
                             ->orderBy('id', 'DESC')
-                            ->get(['products.*', 'categories.name as category', 'suppliers.name as supplier']);
+                            ->paginate(15,['products.*', 'categories.name as category', 'suppliers.name as supplier']);
         return view('product', [
             "title" => "Product",
             "data" => $data

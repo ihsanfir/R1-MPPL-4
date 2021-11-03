@@ -102,4 +102,5 @@
           </div>
         </div>
 </body>
+{{ $data->links() }}
 @endsection
