@@ -19,7 +19,7 @@ class EmployeeController extends Controller
     {
         return view('employee', [
             "title" => "Employee",
-            "data" => Employee::all()
+            "data" => Employee::latest()->paginate(15)
         ]);
     }
 

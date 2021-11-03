@@ -28,4 +28,5 @@
     </tr>
     @endforeach
 </body>
+{{ $data->links() }}
 @endsection
