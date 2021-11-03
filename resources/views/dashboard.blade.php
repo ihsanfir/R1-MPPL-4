@@ -1,49 +1,32 @@
-<!-- <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>IFISH | {{ $title }}</title>
-    </head>
-    <body>
-        <h1>Dashboard</h1>
-        @foreach ($expanse as $expanses)
-        <article>
-            {{ $expanses->amount }}
-            {{ $expanses->date }}
-        </article>
-        @endforeach
-        <h1> Income </h1>
-        @foreach ($income as $incomes)
-        <article>
-            {{ $incomes->amount }}
-            {{ $incomes->date }}
-        </article>
-        @endforeach
-    </body>
-</html> -->
-
 @extends('master')
 @section('title') IFISH | {{ $title }} @endsection
 @section('heading_1') DASHBOARD @endsection
 @section('content')
+
     <div class="row">
-    @foreach ($expanse as $expanses)
-        <article>
-            {{ $expanses->amount }}
-            {{ $expanses->date }}
-        </article>
-        @endforeach
+        <h2 class="m-2 text-dark"> Label </h2>
+        @for ($i = 0; $i < count($label); $i++)
+        {{ $label[$i] }}
+    @endfor
     </div>
 
     <div class="row">
         <h2 class="m-2 text-dark"> Income </h2>
-        @foreach ($income as $incomes)
-            <article>
-                {{ $incomes->amount }}
-                {{ $incomes->date }}
-            </article>
-        @endforeach
+        @for ($i = 0; $i < count($incomes); $i++)
+        {{ $incomes[$i] }}
+    @endfor
     </div>
+
+    <div class="row">
+        <h2 class="m-2 text-dark"> Expanse </h2>
+        @for ($i = 0; $i < count($expanses); $i++)
+        {{ $expanses[$i] }}
+    @endfor
+    </div>
+    <script>
+        //ini di pake buat di taro yg kata kemaren tuh, income ama expanses buat price, label buat bulan"nya
+        var incomes = {!! json_encode($incomes, JSON_HEX_TAG) !!}
+        var expanses = {!! json_encode($expanses, JSON_HEX_TAG) !!}
+        var label = {!! json_encode($label, JSON_HEX_TAG) !!}
+    </script>
 @endsection

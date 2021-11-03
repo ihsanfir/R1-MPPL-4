@@ -20,7 +20,7 @@ class IncomeSeeder extends Seeder
     	for($i = 1; $i <= 50; $i++){
             DB::table('incomes')->insert([
                 'id_product' => $i,
-                'amount' => $faker->numberBetween(1,10),
+                'amount' => $faker->numberBetween(100000,10000000),
                 'date' => $faker->dateTimeThisYear($max = 'now', $timezone = null)
             ]);
         }

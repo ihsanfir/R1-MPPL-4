@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Income;
 use App\Models\Expanse;
-
+use DB;
 
 class DashboardController extends Controller
 {
@@ -16,12 +16,46 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $income = Income::all();
-        $expanse = Expanse::all();
+        $income = Income::select(
+            DB::raw('sum(amount) as sums'), 
+            DB::raw("DATE_FORMAT(date,'%M %Y') as months"))
+                ->groupBy('months')
+                ->orderBy('date')
+                ->get();
+        //dd($income);
+        $expanse = Expanse::select(
+            DB::raw('sum(amount) as sums'), 
+            DB::raw("DATE_FORMAT(date,'%M %Y') as months"))
+                ->groupBy('months')
+                ->orderBy('date')
+                ->get(['sums']);
+        
+        $expanse = $expanse->toArray();
+        $income = $income->toArray();
+        //dd($expanse);
+
+        if(count($expanse) > count($income)){
+            foreach($expanse as $expans){
+                $label[] = $expans['months'];
+            }
+        } else {
+            foreach($income as $incomes){
+                $label[] = $incomes['months'];
+            }
+        }
+        foreach($income as $incom){
+            $incomes[] = $incom['sums'];
+        }
+
+        foreach($expanse as $expans){
+            $expanses[] = $expans['sums'];
+        }
+        //dd($incomes, $expanses, $label);
         return view('dashboard', [
             "title" => "Dashborad",
-            "income" => $income,
-            "expanse" => $expanse
+            "label" => $label,
+            "incomes" => $incomes,
+            "expanses" => $expanses
         ]);
     }
 
