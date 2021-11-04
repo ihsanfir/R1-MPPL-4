@@ -1,5 +1,11 @@
 @extends('master')
 @section('title') IFISH | {{ $title }} @endsection
+
+@section('categories') active @endsection
+@section('categories_li') active @endsection
+
+@section('open_cat') menu-open @endsection
+
 @section('content')
 <body>
             <div class="card-body table-responsive p-0">

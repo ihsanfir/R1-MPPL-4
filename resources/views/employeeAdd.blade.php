@@ -1,5 +1,11 @@
 @extends('master')
 @section('title') IFISH | {{ $title }} @endsection
+
+@section('employee') active @endsection
+@section('employee_add') active @endsection
+
+@section('open_emp') menu-open @endsection
+
 @section('content')
 <body>
     <form action = "/employee/store" method = "post">
