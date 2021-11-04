@@ -245,6 +245,6 @@
 <script src="{{asset('vendors/plugins/chart.js/Chart.min.js')}}"></script>
 
 <!-- PAGE SCRIPTS -->
-<!-- <script src="{{asset('vendors/dist/js/pages/dashboard2.js')}}"></script> -->
+@yield('script')
 </body>
 </html>
