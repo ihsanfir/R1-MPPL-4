@@ -1,6 +1,7 @@
 @extends('master')
 @section('title') IFISH | {{ $title }} @endsection
 @section('heading_1') DASHBOARD @endsection
+@section('dashboard') active @endsection
 @section('content')
 
     <div class="row">
