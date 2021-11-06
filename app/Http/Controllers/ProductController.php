@@ -129,6 +129,24 @@ class ProductController extends Controller
         return redirect("/product");
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $data = Product::latest()
+                ->join('categories', 'categories.id', '=', 'products.id_category' )
+                ->join('suppliers', 'suppliers.id', '=', 'products.id_supplier')
+                ->select('products.*', 'categories.name as category', 'suppliers.name as supplier')
+                ->where('products.name','LIKE','%'.$search.'%')
+                ->orWhere('categories.name','LIKE','%'.$search.'%')
+                ->orWhere('suppliers.name','LIKE','%'.$search.'%')
+                ->paginate(15);
+        $data->appends(['search'=>$search]);
+        return view('product',[
+            "title" => "Product",
+            "data" => $data
+        ]);
+    }
+
     public function pdf() {
         $products = Product::join('categories', 'categories.id', '=', 'products.id_category' )
                             ->join('suppliers', 'suppliers.id', '=', 'products.id_supplier')

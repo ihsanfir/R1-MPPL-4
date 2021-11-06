@@ -19,7 +19,7 @@ class SupplierController extends Controller
     {
         return view('supplier', [
             "title" => "Suppliers",
-            "data" => Supplier::all()
+            "data" => Supplier::latest()->paginate(5)
         ]);
     }
 
@@ -109,6 +109,19 @@ class SupplierController extends Controller
     {
         Supplier::destroy($id);
         return redirect('/supplier');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $data = Supplier::where('name','LIKE','%'.$search.'%')
+                ->orWhere('email','LIKE','%'.$search.'%')
+                ->paginate(5);
+        $data->appends(['search'=>$search]);
+        return view('supplier',[
+            "title" => "Supplier",
+            "data" => $data
+        ]);
     }
 
     public function pdf() {
