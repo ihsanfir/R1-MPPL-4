@@ -31,7 +31,7 @@
               <div class="card-header">
                 <h3 class="card-title">Suppliers</h3>
                 <div class="card-tools">
-                  <form action="#" method="GET">
+                  <form action="/supplier/search" method="GET">
                     <div class="input-group input-group-sm" style="width: 150px;">
                       <input type="text" name="search" class="form-control float-right" placeholder="Search" value="{{ old('search') }}">
 
@@ -73,4 +73,5 @@
           </div>
         </div>                   
 </body>
+{{ $data->links() }}
 @endsection
