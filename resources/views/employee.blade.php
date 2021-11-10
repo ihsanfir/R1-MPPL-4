@@ -57,12 +57,23 @@
                 <h3 class="card-title">Employee</h3>
                 <div class="card-tools">
                   <form action="/employee/search" method="GET">
-                    <div class="input-group input-group-sm" style="width: 150px;">
+                    <div class="input-group input-group-sm" style="width: 250px;">
                       <input type="text" name="search" class="form-control float-right" placeholder="Search" value="{{ old('search') }}">
-
                       <div class="input-group-append">
-                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                        <button type="submit" class="btn btn-default mr-1"><i class="fas fa-search"></i></button>
+                      <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-success">Export</button>
+                    <button type="button" class="btn btn-success dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                      <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu" role="menu">
+                      <a class="dropdown-item" href="#">Export to Pdf</a>
+                      <a class="dropdown-item" href="#">Export to Excel</a>
+                    </div>
+                  </div>
+                      
                       </div>
+
                     </div>
                   </form>
                 </div>

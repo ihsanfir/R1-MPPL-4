@@ -26,6 +26,9 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Employee Detail</h3>
+                <div class="btn-group btn-group-sm float-sm-right">
+                    <button type="button" class="btn btn-success">Export Slip Gaji </button>
+                  </div>
               </div>
               <div class="card-body">
                 <strong><i class="fas fa-user"></i></i> Name</strong>
@@ -56,9 +59,11 @@
               </div>
               <!-- /.card-body -->
             </div>
+            <div class="btn-group float-left">
               <form action="/employee/delete/<?php echo$data->id; ?>">
-                <input style="background-color:red" type="submit" value="Delete" />
+                <input class="btn btn-danger toastsDefaultDanger" type="submit" value="Delete" />
               </form>
+            </div>
             <!-- /.card -->
           </div>
         </div>
