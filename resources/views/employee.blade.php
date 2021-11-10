@@ -73,8 +73,8 @@
                             <td>{{ $employee->salary }}</td>
                             <td>{{ $employee->bonus }}</td>
                             <td>{{ $employee->role }}</td>
-                            <td><a href = '/employee/{{ $employee->id }}'>Detail</a></td>
-                            <td><a href = '/employee/edit/{{ $employee->id }}'>Edit</a></td>
+                            <td><a href = '/employee/{{ $employee->id }}' class="btn btn-block btn-primary btn-sm">Detail</a></td>
+                            <td><a href = '/employee/edit/{{ $employee->id }}' class="btn btn-block btn-danger btn-sm">Edit</a></td>
                         </tr>
                         @endforeach
                     </tbody>
