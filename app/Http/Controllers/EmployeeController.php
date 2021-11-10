@@ -19,7 +19,7 @@ class EmployeeController extends Controller
     {
         return view('employee', [
             "title" => "Employee",
-            "data" => Employee::all()
+            "data" => Employee::latest()->paginate(15)
         ]);
     }
 
@@ -126,12 +126,15 @@ class EmployeeController extends Controller
     public function search(Request $request)
     {
         $search = $request->input('search');
+        $data = Employee::where('name','LIKE','%'.$search.'%')
+                ->orWhere('email','LIKE','%'.$search.'%')
+                ->orWhere('role', 'LIKE', '%'.$search.'%')
+                ->paginate(15);
+        $data->appends(['search'=>$search]);
+
         return view('employee',[
             "title" => "Employee",
-            "data" => Employee::where('name','LIKE','%'.$search.'%')
-                            ->orWhere('email','LIKE','%'.$search.'%')
-                            ->orWhere('role', 'LIKE', '%'.$search.'%')
-                            ->get()
+            "data" => $data
         ]);
     }
 

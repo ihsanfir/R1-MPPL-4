@@ -76,29 +76,26 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
-            <a href="{{url('/')}}" class="nav-link active">
+          <li class="nav-item has-treeview @yield('open_das')">
+            <a href="{{url('/')}}" class="nav-link @yield('dashboard')">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-user"></i>
               <p>
                 Employee
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview ">
               <li class="nav-item">
-                <a href="{{url('/employee')}}" class="nav-link">
+                <a href="{{url('/employee')}}" class="nav-link  @yield('employee_li')">
                   <i class="fas fa-bars nav-icon"></i>
                   <p>List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/employee/add')}}" class="nav-link">
+                <a href="{{url('/employee/add')}}" class="nav-link  @yield('employee_add')">
                   <i class="fas fa-plus-square nav-icon"></i>
                   <p>Add</p>
                 </a>
@@ -106,9 +103,6 @@
             </ul>
           </li>
 <!-- Category -->
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-grip-vertical"></i>
               <p>
                 Categories
                 <i class="fas fa-angle-left right"></i>
@@ -116,13 +110,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/category')}}" class="nav-link">
+                <a href="{{url('/category')}}" class="nav-link @yield('categories_li')">
                   <i class="fas fa-bars nav-icon"></i>
                   <p>List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/category/add')}}" class="nav-link">
+                <a href="{{url('/category/add')}}" class="nav-link @yield('categories_add')">
                   <i class="fas fa-plus-square nav-icon"></i>
                   <p>Add</p>
                 </a>
@@ -130,9 +124,9 @@
             </ul>
           </li>
 <!-- Supllier -->
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
+          <li class="nav-item has-treeview @yield('open_sup')">
+            <a href="#" class="nav-link @yield('supplier')">
+              <i class="nav-icon fas fa-dolly"></i>
               <p>
                 Suppliers
                 <i class="fas fa-angle-left right"></i>
@@ -140,13 +134,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/supplier')}}" class="nav-link">
+                <a href="{{url('/supplier')}}" class="nav-link @yield('supplier_li')">
                   <i class="fas fa-bars nav-icon"></i>
                   <p>List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/supplier/add')}}" class="nav-link">
+                <a href="{{url('/supplier/add')}}" class="nav-link @yield('supplier_add')">
                   <i class="fas fa-plus-square nav-icon"></i>
                   <p>Add</p>
                 </a>
@@ -154,9 +148,9 @@
             </ul>
           </li>
 <!-- Product -->
-<li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
+<li class="nav-item has-treeview @yield('open_pro')">
+            <a href="#" class="nav-link @yield('product')">
+              <i class="nav-icon fas fa-boxes"></i>
               <p>
                 Product
                 <i class="fas fa-angle-left right"></i>
@@ -164,13 +158,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/product')}}" class="nav-link">
+                <a href="{{url('/product')}}" class="nav-link @yield('product_li')">
                   <i class="fas fa-bars nav-icon"></i>
                   <p>List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/product/add')}}" class="nav-link">
+                <a href="{{url('/product/add')}}" class="nav-link @yield('product_add')">
                   <i class="fas fa-plus-square nav-icon"></i>
                   <p>Add</p>
                 </a>
@@ -245,6 +239,6 @@
 <script src="{{asset('vendors/plugins/chart.js/Chart.min.js')}}"></script>
 
 <!-- PAGE SCRIPTS -->
-<!-- <script src="{{asset('vendors/dist/js/pages/dashboard2.js')}}"></script> -->
+@yield('script')
 </body>
 </html>

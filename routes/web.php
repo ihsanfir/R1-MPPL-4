@@ -55,6 +55,7 @@ Route::prefix('supplier')->group(function () {
     Route::get('/export-pdf', [SupplierController::class, 'pdf']);
     Route::get('/export-excel', [SupplierController::class, 'excel']);
     Route::get('/delete/{id}', [SupplierController::class, 'destroy']);
+    Route::get('/search',[SupplierController::class,'search']);
     Route::get('/edit/{id}', [SupplierController::class, 'edit']);
     //Route::get('/{id}', [SupplierController::class, 'show']);
     Route::Post('/store', [SupplierController::class, 'store']);
@@ -68,6 +69,7 @@ Route::prefix('product')->group(function () {
     Route::get('/export-pdf', [ProductController::class, 'pdf']);
     Route::get('/export-excel', [ProductController::class, 'excel']);
     Route::get('/delete/{id}', [ProductController::class, 'destroy']);
+    Route::get('/search',[ProductController::class,'search']);
     Route::get('/edit/{id}', [ProductController::class, 'edit']);
     Route::Post('/store', [ProductController::class, 'store']);
     Route::Post('/edit/{id}', [ProductController::class, 'update']);
