@@ -82,9 +82,6 @@
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item has-treeview @yield('open_emp')">
-            <a href="#" class="nav-link @yield('employee')">
-              <i class="nav-icon fas fa-users"></i>
               <p>
                 Employee
                 <i class="fas fa-angle-left right"></i>
@@ -106,9 +103,6 @@
             </ul>
           </li>
 <!-- Category -->
-          <li class="nav-item has-treeview @yield('open_cat')">
-            <a href="#" class="nav-link @yield('categories')">
-              <i class="nav-icon fas fa-th"></i>
               <p>
                 Categories
                 <i class="fas fa-angle-left right"></i>
