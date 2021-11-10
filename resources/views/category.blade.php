@@ -53,8 +53,8 @@
     <tr>
         <td>{{ $category->id }}</td>
         <td>{{ $category->name }}</td>
-        <td><a href = '/category/edit/{{ $category->id }}'>Edit</a></td>
-        <td><a href = '/category/delete/{{ $category->id }}'>Delete</a></td>
+        <td><a href = '/category/edit/{{ $category->id }}' class="btn btn-block btn-warning btn-sm">Edit</a></td>
+        <td><a href = '/category/delete/{{ $category->id }}' class="btn btn-block btn-danger btn-sm">Delete</a></td>
     </tr>
     @endforeach
 </body>
