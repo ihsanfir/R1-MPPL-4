@@ -35,12 +35,12 @@ class DashboardController extends Controller
         //dd($expanse);
 
         if(count($expanse) > count($income)){
-            foreach($expanse as $expans){
-                $label[] = $expans['months'];
+            foreach($expanse as $expens){
+                $label[] = $expens['months'];
             }
         } else {
-            foreach($income as $incomes){
-                $label[] = $incomes['months'];
+            foreach($income as $incomess){
+                $label[] = $incomess['months'];
             }
         }
         foreach($income as $incom){
