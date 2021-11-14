@@ -3,37 +3,43 @@
 @section('heading_1') DASHBOARD @endsection
 @section('dashboard') active @endsection
 @section('content')
-
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Income</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
     <div class="row">
-        <div class="col-lg-6">
-        <div class="card">
-              <div class="card-header border-0">
-                <div class="d-flex justify-content-between">
-                  <h1 class="card-title">Incomes</h1>
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="position-relative mb-4">
+                    <canvas id="incomes-chart" height="200"></canvas>
+                    </div>
                 </div>
-              </div>
-              <div class="card-body">
-                <div class="position-relative mb-4">
-                  <canvas id="incomes-chart" height="200"></canvas>
-                </div>
-
-              </div>
             </div>
         </div>
-
-        <div class="col-lg-6">
-        <div class="card">
-              <div class="card-header border-0">
-                <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Expanses</h3>
+    </div>    
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Expanses</h1>
                 </div>
-              </div>
-              <div class="card-body">
-                <div class="position-relative mb-4">
-                  <canvas id="expanses-chart" height="200"></canvas>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="position-relative mb-4">
+                        <canvas id="expanses-chart" height="200"></canvas>
+                    </div>
                 </div>
-
-              </div>
             </div>
         </div>
     </div>
