@@ -92,13 +92,13 @@
             </a>
             <ul class="nav nav-treeview ">
               <li class="nav-item">
-                <a href="{{url('/employee')}}" class="nav-link  @yield('employee_li')">
+                <a href="{{url('/employee')}}" class="nav-link  @yield('employee_li')" style="padding-left: 32px;">
                   <i class="fas fa-bars nav-icon"></i>
                   <p>List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/employee/add')}}" class="nav-link  @yield('employee_add')">
+                <a href="{{url('/employee/add')}}" class="nav-link  @yield('employee_add')" style="padding-left: 32px;">
                   <i class="fas fa-plus-square nav-icon"></i>
                   <p>Add</p>
                 </a>
@@ -116,13 +116,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/category')}}" class="nav-link @yield('categories_li')">
+                <a href="{{url('/category')}}" class="nav-link @yield('categories_li')" style="padding-left: 32px;">
                   <i class="fas fa-bars nav-icon"></i>
                   <p>List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/category/add')}}" class="nav-link @yield('categories_add')">
+                <a href="{{url('/category/add')}}" class="nav-link @yield('categories_add')" style="padding-left: 32px;">
                   <i class="fas fa-plus-square nav-icon"></i>
                   <p>Add</p>
                 </a>
@@ -140,13 +140,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/supplier')}}" class="nav-link @yield('supplier_li')">
+                <a href="{{url('/supplier')}}" class="nav-link @yield('supplier_li')" style="padding-left: 32px;">
                   <i class="fas fa-bars nav-icon"></i>
                   <p>List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/supplier/add')}}" class="nav-link @yield('supplier_add')">
+                <a href="{{url('/supplier/add')}}" class="nav-link @yield('supplier_add')" style="padding-left: 32px;">
                   <i class="fas fa-plus-square nav-icon"></i>
                   <p>Add</p>
                 </a>
@@ -164,13 +164,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/product')}}" class="nav-link @yield('product_li')">
+                <a href="{{url('/product')}}" class="nav-link @yield('product_li')" style="padding-left: 32px;">
                   <i class="fas fa-bars nav-icon"></i>
                   <p>List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/product/add')}}" class="nav-link @yield('product_add')">
+                <a href="{{url('/product/add')}}" class="nav-link @yield('product_add')" style="padding-left: 32px;">
                   <i class="fas fa-plus-square nav-icon"></i>
                   <p>Add</p>
                 </a>
