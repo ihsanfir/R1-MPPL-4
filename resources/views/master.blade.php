@@ -45,6 +45,12 @@
       </div>
     </form>
 
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#" role="button"><i
+            class="fas fa-sign-out-alt"></i> Logout</a>
+      </li>
+    </ul>
     
   </nav>
   <!-- /.navbar -->
