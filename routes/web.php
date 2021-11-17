@@ -30,8 +30,8 @@ Route::prefix('employee')->group(function () {
     Route::get('/delete/{id}', [EmployeeController::class, 'destroy']);
     Route::get('/search',[EmployeeController::class,'search']);
     Route::get('/edit/{id}', [EmployeeController::class, 'edit']);
-    Route::get('/export-pdf', [EmployeeController::class, 'pdf']);
-    Route::get('/export-excel', [EmployeeController::class, 'excel']);
+    Route::get('/export-pdf', [EmployeeController::class, 'pdf'])->name('pdf-employee');
+    Route::get('/export-excel', [EmployeeController::class, 'excel'])->name('excel-employee');
     Route::get('/{id}', [EmployeeController::class, 'show']);
     Route::Post('/store', [EmployeeController::class, 'store']);
     Route::Post('/edit/{id}', [EmployeeController::class, 'update']);
@@ -52,8 +52,8 @@ Route::prefix('category')->group(function () {
 Route::prefix('supplier')->group(function () {
     Route::get('/', [SupplierController::class, 'index']);
     Route::get('/add', [SupplierController::class, 'create']);
-    Route::get('/export-pdf', [SupplierController::class, 'pdf']);
-    Route::get('/export-excel', [SupplierController::class, 'excel']);
+    Route::get('/export-pdf', [SupplierController::class, 'pdf'])->name('pdf-supplier');
+    Route::get('/export-excel', [SupplierController::class, 'excel'])->name('excel-supplier');
     Route::get('/delete/{id}', [SupplierController::class, 'destroy']);
     Route::get('/search',[SupplierController::class,'search']);
     Route::get('/edit/{id}', [SupplierController::class, 'edit']);
@@ -66,8 +66,8 @@ Route::prefix('supplier')->group(function () {
 Route::prefix('product')->group(function () {
     Route::get('/', [ProductController::class, 'index']);
     Route::get('/add', [ProductController::class, 'create']);
-    Route::get('/export-pdf', [ProductController::class, 'pdf']);
-    Route::get('/export-excel', [ProductController::class, 'excel']);
+    Route::get('/export-pdf', [ProductController::class, 'pdf'])->name('pdf-product');
+    Route::get('/export-excel', [ProductController::class, 'excel'])->name('excel-product');
     Route::get('/delete/{id}', [ProductController::class, 'destroy']);
     Route::get('/search',[ProductController::class,'search']);
     Route::get('/edit/{id}', [ProductController::class, 'edit']);
