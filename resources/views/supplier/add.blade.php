@@ -44,7 +44,7 @@
                 <label for="email">Email</label>
                 <input type = 'text' name = 'email' class="form-control" value = ''/>
               </div>
-              <div class="btn-group float-right">
+              <div class="btn-group-sm float-right">
                 <input type="submit" value="Save Changes" class="btn btn-success toastsDefaultSuccess">
                 <a href="#" class="btn btn-danger toastsDefaultDanger">Cancel</a>
               </div>
