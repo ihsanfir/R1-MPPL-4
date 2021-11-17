@@ -17,7 +17,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('employee', [
+        return view('employee.index', [
             "title" => "Employee",
             "data" => Employee::latest()->paginate(15)
         ]);
@@ -30,7 +30,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('employeeAdd',[
+        return view('employee.add',[
             "title" => "Add Employee"
         ]);
     }
@@ -61,7 +61,7 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        return view('employeeDetail',[
+        return view('employee.detail',[
             "title" => "Detail Employee",
             "data" => Employee::find($id)
         ]);
@@ -75,7 +75,7 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        return view('employeeEdit',[
+        return view('employee.edit',[
             "title" => "Edit Employee",
             "data" => Employee::find($id)
         ]);
@@ -105,7 +105,7 @@ class EmployeeController extends Controller
         /*
         Employee::where('id', $id)
                 ->update(['salary'=>$salary],['role'=>$role]);*/
-        return view('employeeDetail',[
+        return view('employee.detail',[
             "title" => "Detail Employee",
             "data" => Employee::find($id)
         ]);
@@ -132,7 +132,7 @@ class EmployeeController extends Controller
                 ->paginate(15);
         $data->appends(['search'=>$search]);
 
-        return view('employee',[
+        return view('employee.index',[
             "title" => "Employee",
             "data" => $data
         ]);

@@ -23,7 +23,7 @@ class ProductController extends Controller
                             ->join('suppliers', 'suppliers.id', '=', 'products.id_supplier')
                             ->orderBy('id', 'DESC')
                             ->paginate(15,['products.*', 'categories.name as category', 'suppliers.name as supplier']);
-        return view('product', [
+        return view('product.index', [
             "title" => "Product",
             "data" => $data
         ]);
@@ -38,7 +38,7 @@ class ProductController extends Controller
     {
         $category = Category::all(['id','name']);
         $supplier = Supplier::all(['id', 'name']);
-        return view('productAdd',[
+        return view('product.add',[
             "title" => "Add Product",
             "categories" => $category,
             "suppliers" => $supplier
@@ -85,7 +85,7 @@ class ProductController extends Controller
         $category = Category::all(['id','name']);
         $supplier = Supplier::all(['id', 'name']);
         $data = Product::find($id);
-        return view('productEdit', [
+        return view('product.edit', [
             "title" => "Product",
             "data" => $data,
             "categories" => $category,
@@ -141,7 +141,7 @@ class ProductController extends Controller
                 ->orWhere('suppliers.name','LIKE','%'.$search.'%')
                 ->paginate(15);
         $data->appends(['search'=>$search]);
-        return view('product',[
+        return view('product.index',[
             "title" => "Product",
             "data" => $data
         ]);

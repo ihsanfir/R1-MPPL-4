@@ -40,8 +40,8 @@
                       <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <div class="dropdown-menu" role="menu">
-                      <a class="dropdown-item" href="#">Export to Pdf</a>
-                      <a class="dropdown-item" href="#">Export to Excel</a>
+                      <a class="dropdown-item" href="{{ route('pdf-employee') }}">Export to Pdf</a>
+                      <a class="dropdown-item" href="{{ route('excel-employee') }}">Export to Excel</a>
                     </div>
                   </div>
                       

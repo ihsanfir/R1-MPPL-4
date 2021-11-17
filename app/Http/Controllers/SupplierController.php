@@ -17,7 +17,7 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        return view('supplier', [
+        return view('supplier.index', [
             "title" => "Suppliers",
             "data" => Supplier::latest()->paginate(5)
         ]);
@@ -30,7 +30,7 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        return view('supplierAdd',[
+        return view('supplier.add',[
             "title" => "Add Supplier"
         ]);
     }
@@ -73,7 +73,7 @@ class SupplierController extends Controller
      */
     public function edit($id)
     {
-        return view('supplierEdit',[
+        return view('supplier.edit',[
             "title" => "Edit Supplier",
             "data" => Supplier::find($id)
         ]);
@@ -118,7 +118,7 @@ class SupplierController extends Controller
                 ->orWhere('email','LIKE','%'.$search.'%')
                 ->paginate(5);
         $data->appends(['search'=>$search]);
-        return view('supplier',[
+        return view('supplier.index',[
             "title" => "Supplier",
             "data" => $data
         ]);
