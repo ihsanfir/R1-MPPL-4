@@ -67,7 +67,7 @@
                 <tbody>
                     @foreach ($data as $product)
                     <tr>
-                        <td>{{ $product->id }}</td>
+                        <td>{{ ($data->currentpage()-1) * $data->perpage() + $loop->index + 1 }}</td>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->stock }}</td>

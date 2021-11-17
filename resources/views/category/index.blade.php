@@ -51,7 +51,7 @@
                     <tbody>
     @foreach ($data as $category)
     <tr>
-        <td>{{ $category->id }}</td>
+        <td>{{ ($data->currentpage()-1) * $data->perpage() + $loop->index + 1 }}</td>
         <td>{{ $category->name }}</td>
         <td><a href = '/category/edit/{{ $category->id }}' class="btn btn-block btn-warning btn-sm">Edit</a></td>
         <td><a href = '/category/delete/{{ $category->id }}' class="btn btn-block btn-danger btn-sm">Delete</a></td>

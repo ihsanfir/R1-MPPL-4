@@ -20,7 +20,7 @@ class SupplierSeeder extends Seeder
  
     	for($i = 1; $i <= 10; $i++){
             DB::table('suppliers')->insert([
-                'name' => $faker->name,
+                'name' => $faker->company,
                 'no_hp' => $faker->e164PhoneNumber,
                 'email' => $faker->email
             ]);

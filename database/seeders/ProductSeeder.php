@@ -19,7 +19,7 @@ class ProductSeeder extends Seeder
  
     	for($i = 1; $i <= 50; $i++){
             DB::table('products')->insert([
-                'name' => $faker->name,
+                'name' => $faker->word,
                 'price' => $faker->numberBetween(100000,10000000),
                 'stock' => $faker->numberBetween(1,500),
                 'id_supplier' => $faker-> numberBetween(1,10),
