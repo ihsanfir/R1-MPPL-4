@@ -65,7 +65,7 @@
                     <tbody>
                         @foreach ($data as $supplier)
                         <tr>
-                            <td>{{ $supplier->id }}</td>
+                            <td>{{ ($data->currentpage()-1) * $data->perpage() + $loop->index + 1 }}</td>
                             <td>{{ $supplier->name }}</td>
                             <td>{{ $supplier->no_hp }}</td>
                             <td>{{ $supplier->email }}</td>

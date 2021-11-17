@@ -67,7 +67,7 @@
                     <tbody>
                     @foreach ($data as $employee)
                         <tr>
-                            <td>{{ $employee->id }}</td>
+                            <td>{{ ($data->currentpage()-1) * $data->perpage() + $loop->index + 1 }}</td>
                             <td>{{ $employee->name }}</td>
                             <td>{{ $employee->email }}</td>
                             <td>{{ $employee->salary }}</td>

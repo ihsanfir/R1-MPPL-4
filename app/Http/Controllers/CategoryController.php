@@ -16,7 +16,7 @@ class CategoryController extends Controller
     {
         return view('category.index', [
             "title" => "Category",
-            "data" => Category::all()
+            "data" => Category::latest()->paginate(15)
         ]);
     }
 

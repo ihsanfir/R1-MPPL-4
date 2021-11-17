@@ -69,7 +69,6 @@
             class="fas fa-sign-out-alt"></i> Logout</a>
       </li>
     </ul>
-
     
   </nav>
   <!-- /.navbar -->
