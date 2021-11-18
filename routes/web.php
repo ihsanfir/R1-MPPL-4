@@ -21,10 +21,10 @@ use App\Http\Controllers\SupplierController;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index']);
+Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
 
 //Employee Route
-Route::prefix('employee')->group(function () {
+Route::group(["prefix"=>"employee", "middleware"=>"auth"], function () {
     Route::get('/', [EmployeeController::class, 'index'] );
     Route::get('/add', [EmployeeController::class, 'create']);
     Route::get('/delete/{id}', [EmployeeController::class, 'destroy']);
@@ -38,7 +38,7 @@ Route::prefix('employee')->group(function () {
 });
 
 //Category Route
-Route::prefix('category')->group(function () {
+Route::group(["prefix"=>"category", "middleware"=>"auth"], function () {
     Route::get('/', [CategoryController::class, 'index']);
     Route::get('/add', [CategoryController::class, 'create']);
     Route::get('/delete/{id}', [CategoryController::class, 'destroy']);
@@ -49,7 +49,7 @@ Route::prefix('category')->group(function () {
 });
 
 //Supplier Route
-Route::prefix('supplier')->group(function () {
+Route::group(["prefix"=>"supplier", "middleware"=>"auth"], function () {
     Route::get('/', [SupplierController::class, 'index']);
     Route::get('/add', [SupplierController::class, 'create']);
     Route::get('/export-pdf', [SupplierController::class, 'pdf'])->name('pdf-supplier');
@@ -63,7 +63,7 @@ Route::prefix('supplier')->group(function () {
 });
 
 //Product Route
-Route::prefix('product')->group(function () {
+Route::group(["prefix"=>"product", "middleware"=>"auth"], function () {
     Route::get('/', [ProductController::class, 'index']);
     Route::get('/add', [ProductController::class, 'create']);
     Route::get('/export-pdf', [ProductController::class, 'pdf'])->name('pdf-product');
@@ -84,4 +84,4 @@ Route::prefix('register')->group(function () {
 // Login Route
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/authenticate', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']);
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
