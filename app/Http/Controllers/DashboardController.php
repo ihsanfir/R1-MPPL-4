@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Income;
 use App\Models\Expanse;
+use App\Models\Product;
+use App\Models\Supplier;
+use App\Models\Employee;
+use App\Models\Category;
 use DB;
 
 class DashboardController extends Controller
@@ -16,6 +20,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $totalProduct = Product::count();
+        $totalSupplier = Supplier::count();
+        $totalEmployee = Employee::count();
+        $totalCategory = Category::count();
+
         $income = Income::select(
             DB::raw('sum(amount) as sums'), 
             DB::raw("DATE_FORMAT(date,'%M %Y') as months"))
@@ -55,7 +64,11 @@ class DashboardController extends Controller
             "title" => "Dashborad",
             "label" => $label,
             "incomes" => $incomes,
-            "expanses" => $expanses
+            "expanses" => $expanses,
+            "totalProduct" => $totalProduct,
+            "totalSupplier" => $totalSupplier,
+            "totalEmployee" => $totalEmployee,
+            "totalCategory" => $totalCategory
         ]);
     }
 
