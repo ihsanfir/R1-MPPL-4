@@ -47,7 +47,13 @@
 
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#" role="button"><i
+        <!-- <form action="/logout" method="post">
+          @csrf
+          <button type="submit" class="nav-link">
+          <i class="fas fa-sign-out-alt"></i>Logout
+          </button>
+        </form> -->
+        <a class="nav-link" href="{{ route('logout') }}" role="button"><i
             class="fas fa-sign-out-alt"></i> Logout</a>
       </li>
     </ul>
@@ -73,7 +79,7 @@
         </div>
         <div class="info">
           
-          <a href="#" class="d-block">Kang IFISH</a>
+          <a href="#" class="d-block">{{ auth()->user()->name }}</a>
         </div>
       </div>
 
