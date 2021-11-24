@@ -19,12 +19,13 @@ class DashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        $products = Product::orderby('id','desc')->with('product_supplier')->get();
         $totalProduct = Product::count();
         $totalSupplier = Supplier::count();
         $totalEmployee = Employee::count();
         $totalCategory = Category::count();
-
+        
         $income = Income::select(
             DB::raw('sum(amount) as sums'), 
             DB::raw("DATE_FORMAT(date,'%M %Y') as months"))
@@ -68,8 +69,10 @@ class DashboardController extends Controller
             "totalProduct" => $totalProduct,
             "totalSupplier" => $totalSupplier,
             "totalEmployee" => $totalEmployee,
-            "totalCategory" => $totalCategory
+            "totalCategory" => $totalCategory,
+            "products" => $products
         ]);
+
     }
 
     /**

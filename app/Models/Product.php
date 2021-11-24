@@ -16,4 +16,8 @@ class Product extends Model
         'id_category',
         'id_supplier',
     ];
+
+    public function product_supplier(){
+        return $this->belongsTo('App\Models\Supplier','id_supplier');
+    }
 }
