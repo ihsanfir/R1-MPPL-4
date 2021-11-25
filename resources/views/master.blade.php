@@ -63,7 +63,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{url('/')}}" class="brand-link">
       <img src="{{asset('vendors/dist/img/logo-ifish-3.png')}}" alt="Logo" class="brand-image">
@@ -210,6 +210,9 @@
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
+    <div class="p-3" >
+
+    </div>
   </aside>
   <!-- /.control-sidebar -->
 
@@ -226,6 +229,9 @@
 <script src="{{asset('vendors/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('vendors/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
 <!-- Bootstrap -->
 <script src="{{asset('vendors/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- overlayScrollbars -->
