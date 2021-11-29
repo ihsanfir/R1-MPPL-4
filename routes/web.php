@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SupplierController;
+use App\Models\Employee;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,7 @@ Route::group(["prefix"=>"employee", "middleware"=>"auth"], function () {
     Route::get('/edit/{id}', [EmployeeController::class, 'edit']);
     Route::get('/export-pdf', [EmployeeController::class, 'pdf'])->name('pdf-employee');
     Route::get('/export-excel', [EmployeeController::class, 'excel'])->name('excel-employee');
+    Route::get('/export-slip/{id}', [EmployeeController::class, 'salary'])->name('pdf-slip');
     Route::get('/{id}', [EmployeeController::class, 'show']);
     Route::Post('/store', [EmployeeController::class, 'store']);
     Route::Post('/edit/{id}', [EmployeeController::class, 'update']);

@@ -153,7 +153,7 @@ class ProductController extends Controller
                             ->orderBy('id', 'DESC')
                             ->get(['products.*', 'categories.name as category', 'suppliers.name as supplier']);
  
-    	$pdf = PDF::loadview('pdf.product',['products'=>$products]);
+    	$pdf = PDF::loadview('pdf.product',['products'=>$products])->setPaper('a4', 'landscape');
         return $pdf->stream();
     }
 

@@ -20,12 +20,20 @@ class DashboardController extends Controller
      */
     public function index()
     {   
+        $countOfCategory = [];
+        
         $products = Product::orderby('id','desc')->with('product_supplier')->get();
         $totalProduct = Product::count();
         $totalSupplier = Supplier::count();
         $totalEmployee = Employee::count();
         $totalCategory = Category::count();
+        $nameOfCategory = Category::pluck('name')->toArray();
         
+        foreach ($nameOfCategory as $key=>$n) {
+            $totalCat = Category::find($key+1)->products()->count();
+            array_push($countOfCategory, $totalCat);
+        }
+
         $income = Income::select(
             DB::raw('sum(amount) as sums'), 
             DB::raw("DATE_FORMAT(date,'%M %Y') as months"))
@@ -70,7 +78,9 @@ class DashboardController extends Controller
             "totalSupplier" => $totalSupplier,
             "totalEmployee" => $totalEmployee,
             "totalCategory" => $totalCategory,
-            "products" => $products
+            "products" => $products,
+            "nameOfCategory" => $nameOfCategory,
+            "countOfCategory" => $countOfCategory
         ]);
 
     }
