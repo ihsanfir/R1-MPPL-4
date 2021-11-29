@@ -127,7 +127,7 @@ class SupplierController extends Controller
     public function pdf() {
         $suppliers = Supplier::all();
  
-    	$pdf = PDF::loadview('pdf.supplier',['suppliers'=>$suppliers]);
+    	$pdf = PDF::loadview('pdf.supplier',['suppliers'=>$suppliers])->setPaper('a4', 'landscape');
         return $pdf->stream();
     }
 

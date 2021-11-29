@@ -33,7 +33,7 @@
               <div class="card-header">
                 <h3 class="card-title">Employee Detail</h3>
                 <div class="btn-group btn-group-sm float-sm-right">
-                    <button type="button" class="btn btn-success">Export Slip Gaji </button>
+                  <a href="/employee/export-slip/{{$data->id}}" class="btn btn-success">Export Slip Gaji</a>
                   </div>
               </div>
               <div class="card-body">

@@ -20,4 +20,8 @@ class Product extends Model
     public function product_supplier(){
         return $this->belongsTo('App\Models\Supplier','id_supplier');
     }
+
+    public function product_category() {
+        return $this->belongsTo('App\Models\Category','id_category');
+    }
 }

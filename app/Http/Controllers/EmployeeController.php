@@ -141,11 +141,18 @@ class EmployeeController extends Controller
     public function pdf() {
         $employees = Employee::all();
  
-    	$pdf = PDF::loadview('pdf.employee',['employees'=>$employees]);
+    	$pdf = PDF::loadview('pdf.employee',['employees'=>$employees])->setPaper('a4', 'landscape');
         return $pdf->stream();
     }
 
     public function excel() {
         return Excel::download(new EmployeeExport, 'employees.xlsx');
+    }
+
+    public function salary($id) {
+        $employee = Employee::find($id);
+
+        $pdf = PDF::loadview('pdf.salary', ['employee'=>$employee]);
+        return $pdf->stream();
     }
 }
