@@ -112,7 +112,7 @@
              <!-- Donut CHART -->
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Category Pie Chart</h3>
+                <h3 class="card-title">Category Chart</h3>
               </div>
               <div class="card-body">
                 <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
@@ -124,10 +124,10 @@
           </div>
           <!-- /.col (LEFT) -->
           <div class="col-md-6">
-                <!-- AREA CHART -->
+                <!-- REVENUE CHART -->
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Area Chart</h3>
+                <h3 class="card-title">Revenue Chart</h3>
               </div>
               <div class="card-body">
                 <div class="chart">
@@ -238,7 +238,7 @@
     //ini di pake buat di taro yg kata kemaren tuh, income ama expanses buat price, label buat bulan"nya
     var incomes = {!! json_encode($incomes, JSON_HEX_TAG) !!}
     var expanses = {!! json_encode($expanses, JSON_HEX_TAG) !!}
-    var label = {!! json_encode($label, JSON_HEX_TAG) !!}
+    var label = {!! json_encode($label, JSON_HEX_TAG) !!} //['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'] 
     var countOfCategory = {!! json_encode($countOfCategory, JSON_HEX_TAG) !!}
     var nameOfCategory = {!! json_encode($nameOfCategory, JSON_HEX_TAG) !!}
 
@@ -361,6 +361,92 @@
             }
             }
         })
+        //-------------
+           //- DONUT CHART -
+           //-------------
+           // Get context with jQuery - using jQuery's .get() method.
+           var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+           var donutData        = {
+             labels: nameOfCategory,
+             datasets: [
+               {
+                 data: countOfCategory,
+                 backgroundColor : ['#f56954', '#00a65a', '#f39c12'],
+               }
+             ]
+           }
+           var donutOptions     = {
+             maintainAspectRatio : false,
+             responsive : true,
+           }
+           //Create pie or douhnut chart
+           // You can switch between pie and douhnut using the method below.
+           new Chart(donutChartCanvas, {
+             type: 'doughnut',
+             data: donutData,
+             options: donutOptions
+           })
+       
+           //--------------
+           //- AREA CHART -
+           //--------------
+       
+           // Get context with jQuery - using jQuery's .get() method.
+           var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
+           var areaChartData = {
+             labels  : label,
+             datasets: [
+               {
+                 label               : 'Incomes',
+                 backgroundColor     : 'rgba(60,141,188,0.9)',
+                 borderColor         : 'rgba(60,141,188,0.8)',
+                 pointRadius          : false,
+                 pointColor          : '#3b8bba',
+                 pointStrokeColor    : 'rgba(60,141,188,1)',
+                 pointHighlightFill  : '#fff',
+                 pointHighlightStroke: 'rgba(60,141,188,1)',
+                 data                : incomes
+               },
+               {
+                 label               : 'Expanses',
+                 backgroundColor     : 'rgba(210, 214, 222, 1)',
+                 borderColor         : 'rgba(210, 214, 222, 1)',
+                 pointRadius         : false,
+                 pointColor          : 'rgba(210, 214, 222, 1)',
+                 pointStrokeColor    : '#c1c7d1',
+                 pointHighlightFill  : '#fff',
+                 pointHighlightStroke: 'rgba(220,220,220,1)',
+                 data                : expanses
+               },
+             ]
+           }
+       
+           var areaChartOptions = {
+             maintainAspectRatio : false,
+             responsive : true,
+             legend: {
+               display: false
+             },
+             scales: {
+               xAxes: [{
+                 gridLines : {
+                   display : false,
+                 }
+               }],
+               yAxes: [{
+                 gridLines : {
+                   display : false,
+                 }
+               }]
+             }
+           }
+       
+           // This will get the first returned node in the jQuery collection.
+           new Chart(areaChartCanvas, {
+             type: 'line',
+             data: areaChartData,
+             options: areaChartOptions
+           })
     })
 
 $('#calendar').datetimepicker({
@@ -368,92 +454,6 @@ $('#calendar').datetimepicker({
     inline: true
   })
 
- //-------------
-    //- DONUT CHART -
-    //-------------
-    // Get context with jQuery - using jQuery's .get() method.
-    var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
-    var donutData        = {
-      labels: nameOfCategory,
-      datasets: [
-        {
-          data: countOfCategory,
-          backgroundColor : ['#f56954', '#00a65a', '#f39c12'],
-        }
-      ]
-    }
-    var donutOptions     = {
-      maintainAspectRatio : false,
-      responsive : true,
-    }
-    //Create pie or douhnut chart
-    // You can switch between pie and douhnut using the method below.
-    new Chart(donutChartCanvas, {
-      type: 'doughnut',
-      data: donutData,
-      options: donutOptions
-    })
-
-    //--------------
-    //- AREA CHART -
-    //--------------
-
-    // Get context with jQuery - using jQuery's .get() method.
-    var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
-    var areaChartData = {
-      labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [
-        {
-          label               : 'Digital Goods',
-          backgroundColor     : 'rgba(60,141,188,0.9)',
-          borderColor         : 'rgba(60,141,188,0.8)',
-          pointRadius          : false,
-          pointColor          : '#3b8bba',
-          pointStrokeColor    : 'rgba(60,141,188,1)',
-          pointHighlightFill  : '#fff',
-          pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [28, 48, 40, 19, 86, 27, 90]
-        },
-        {
-          label               : 'Electronics',
-          backgroundColor     : 'rgba(210, 214, 222, 1)',
-          borderColor         : 'rgba(210, 214, 222, 1)',
-          pointRadius         : false,
-          pointColor          : 'rgba(210, 214, 222, 1)',
-          pointStrokeColor    : '#c1c7d1',
-          pointHighlightFill  : '#fff',
-          pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [65, 59, 80, 81, 56, 55, 40]
-        },
-      ]
-    }
-
-    var areaChartOptions = {
-      maintainAspectRatio : false,
-      responsive : true,
-      legend: {
-        display: false
-      },
-      scales: {
-        xAxes: [{
-          gridLines : {
-            display : false,
-          }
-        }],
-        yAxes: [{
-          gridLines : {
-            display : false,
-          }
-        }]
-      }
-    }
-
-    // This will get the first returned node in the jQuery collection.
-    new Chart(areaChartCanvas, {
-      type: 'line',
-      data: areaChartData,
-      options: areaChartOptions
-    })
 
 </script>
 @endsection
