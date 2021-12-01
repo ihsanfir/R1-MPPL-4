@@ -36,7 +36,7 @@
                 <label for="name">Name</label>
                 <input type = 'text' name = 'name' class="form-control" value = '<?php echo$data->name; ?>'/>
               </div>
-              <div class="btn-group float-right">
+              <div class="btn-group-sm float-right">
                 <input type="submit" value="Save Changes" class="btn btn-success toastsDefaultSuccess">
                 <a href="#" class="btn btn-danger toastsDefaultDanger">Cancel</a>
               </div>
