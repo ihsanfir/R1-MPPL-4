@@ -52,7 +52,7 @@
                 <label for="role">Role</label>
                 <input type = 'text' name = 'role' class="form-control" value = '<?php echo$data->role; ?>'/>
               </div>
-              <div class="btn-group float-right">
+              <div class="btn-group-sm float-right">
                 <input type="submit" value="Save Changes" class="btn btn-success toastsDefaultSuccess">
                 <a href="#" class="btn btn-danger toastsDefaultDanger">Cancel</a>
               </div>

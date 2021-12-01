@@ -61,7 +61,6 @@
 						<div class="overlay"></div>
 						<div class="content text">
 							<h1 class="heading">IFish Login Page</h1>
-							<p>for Admin</p>
 						</div>
 					</div>
 					<div class="clearfix"></div>
