@@ -70,7 +70,7 @@ Memerlukan RAM hingga 2 GB atau lebih.
 #### Framework :
 - Laravel 8
 - Boostrap 5
-- Admin LTE
+- Admin LTE.
 
 # Langkah Instalasi
 [`^ kembali ke atas ^`](#)
