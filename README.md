@@ -20,7 +20,7 @@
 </p>
 
 
-# Deskipris Aplikasi
+# Deskripsi Aplikasi
 [`^ kembali ke atas ^`](#)
 
 ***Ifish*** adalah aplikasi berbasis web untuk suatu perusahaan e-commerce agar mempermudah eksekutif memonitoring penjualan, stock serta pendapatan perusahaannya dan eksekutif dapat menggunakannya untuk membuat perencanaan berdasarkan informasi dari aplikasi..
